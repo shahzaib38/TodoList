@@ -9,12 +9,13 @@ import sb.lib.todolistapp.BR
 import sb.lib.todolistapp.R
 import sb.lib.todolistapp.databinding.TodoListDataBinding
 import sb.lib.todolistapp.viewmodel.TodoListViewModel
+import sb.lib.todolistapp.viewmodel.TodoViewModel
 
 
 @AndroidEntryPoint
-class TodoActivity : BaseActivity<TodoListDataBinding, TodoListViewModel>() {
+class TodoActivity : BaseActivity<TodoListDataBinding,TodoViewModel >() {
 
-    private val mViewModel : TodoListViewModel by viewModels()
+    private val mViewModel : TodoViewModel by viewModels()
 
 
     private var mTodoDataBinding : TodoListDataBinding? =  null
@@ -22,7 +23,7 @@ class TodoActivity : BaseActivity<TodoListDataBinding, TodoListViewModel>() {
 
     override fun getDataBindingVariale(): Int = BR.viewModel
     override fun getLayoutId(): Int = R.layout.todo_list_actiivity
-    override fun getViewModel(): TodoListViewModel = mViewModel
+    override fun getViewModel(): TodoViewModel = mViewModel
 
 
 

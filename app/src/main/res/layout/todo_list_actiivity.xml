@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="sb.lib.todolistapp.viewmodel.TodoListViewModel" />
+            type="sb.lib.todolistapp.viewmodel.TodoViewModel" />
 
     </data>
 

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -31,7 +32,7 @@ import sb.lib.todolistapp.viewmodel.TodoListViewModel
 @AndroidEntryPoint
 class TodoInfoFragment : BaseFragment<TodoInfoDataBinding, TodoListViewModel>() , TodoNavigator ,NewTaskToolbar.OnBackButtonClickedListener {
 
-    private val mViewModel : TodoListViewModel by activityViewModels()
+    private val mViewModel : TodoListViewModel by viewModels()
     private var mTodoInfoDataBinding : TodoInfoDataBinding?=null
 
     override fun getLayoutId(): Int = R.layout.todo_info_layout
@@ -64,6 +65,7 @@ class TodoInfoFragment : BaseFragment<TodoInfoDataBinding, TodoListViewModel>() 
 
       val userId =   todoInfoFragmentArgs.userId
       val todo = todoInfoFragmentArgs.todo
+      Log.i(TAG,"Todo List ${todo}")
 
       if(todo!=null && userId!= null ) {
        documentReference =   firestore.collection(userId.userId!!)

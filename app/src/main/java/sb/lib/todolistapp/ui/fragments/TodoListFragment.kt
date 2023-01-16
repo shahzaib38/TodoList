@@ -24,14 +24,16 @@ import sb.lib.todolistapp.list_sections.ListSection
 import sb.lib.todolistapp.list_sections.NestedSection
 import sb.lib.todolistapp.models.Task
 import sb.lib.todolistapp.models.Todo
+import sb.lib.todolistapp.navigators.InfoNavigator
 import sb.lib.todolistapp.navigators.TodoNavigator
 import sb.lib.todolistapp.utils.OnItemClickListener
 import sb.lib.todolistapp.utils.OnSelectionChangedListener
 import sb.lib.todolistapp.viewmodel.TodoListViewModel
+import sb.lib.todolistapp.viewmodel.TodoViewModel
 
 @AndroidEntryPoint
-class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoListViewModel>() ,
-    TodoAddView.SelectListener ,TodoNavigator , TaskAdapter.OnItemDeleteListener{
+class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoViewModel>() ,
+    TodoAddView.SelectListener ,InfoNavigator , TaskAdapter.OnItemDeleteListener{
 
     companion object {
 
@@ -43,7 +45,7 @@ class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoListViewModel
 
     private val todoListFragmentArgs by  navArgs<TodoListFragmentArgs>()
 
-    private val mViewModel : TodoListViewModel by activityViewModels()
+    private val mViewModel : TodoViewModel by activityViewModels()
     private var gridLayoutManager : GridLayoutManager?= null
     private var mAdapter = TaskAdapter()
     private var mTodoListFragmentDataBinding : TodoFragmentDataBinding?=null
@@ -51,7 +53,7 @@ class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoListViewModel
 
     override fun getLayoutId(): Int = R.layout.todo_list_fragment
     override fun getBindingVariable(): Int  = BR.viewModel
-    override fun getViewModel(): TodoListViewModel = mViewModel
+    override fun getViewModel(): TodoViewModel = mViewModel
 
 
     private  var collectionRefs : CollectionReference?=null
@@ -170,18 +172,18 @@ class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoListViewModel
 
     }
 
-    override fun newTask(name: String) {
-
-
-    }
-
-    override fun changeDate() {
-
-    }
-
-    override fun changeTime() {
-
-    }
+//    override fun newTask(name: String) {
+//
+//
+//    }
+//
+//    override fun changeDate() {
+//
+//    }
+//
+//    override fun changeTime() {
+//
+//    }
 
     override fun onResume() {
         super.onResume()
