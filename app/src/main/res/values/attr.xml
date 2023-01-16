@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="TodoAddView">
+
+        <attr name="edit_menu" format="reference" />
+
+
+    </declare-styleable>
+
+    <declare-styleable name="EditTopView">
+
+        <attr name="task_menu" format="reference" />
+
+
+    </declare-styleable>
+
+</resources>

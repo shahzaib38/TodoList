@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TodoListApp</string>
+    <string name="add_description">New Task</string>
+    <string name="speaker_description">"Speaker Description "</string>
+    <string name="edit_hint">"Enter Task Here"</string>
+    <string name="task_title">Title</string>
+    <string name="cross_description">Cross Desciption</string>
+    <string name="tick_description">Tick Descriptption</string>
+    <string name="welcome">Welcome</string>
+    <string name="your_web_client_id">754646994011-9g3d1tmjsisfute21e8v70sd8d7mm9v8.apps.googleusercontent.com</string>
+    <string name="sign_out">Sign Out</string>
+</resources>

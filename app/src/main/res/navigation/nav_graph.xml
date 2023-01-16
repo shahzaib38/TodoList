@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/authenticationFragment">
+
+
+    <fragment
+        android:id="@+id/todoListFragment"
+        android:name="sb.lib.todolistapp.ui.fragments.TodoListFragment"
+        android:label="TodoListFragment"
+        tools:layout="@layout/todo_list_fragment">
+
+        <action
+            android:id="@+id/action_todoListFragment_to_todoInfoFragment"
+            app:destination="@id/todoInfoFragment" />
+        <action
+            android:id="@+id/action_todoListFragment_to_authenticationFragment"
+            app:destination="@id/authenticationFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            />
+
+        <argument
+            android:name="userId"
+            app:argType="sb.lib.todolistapp.models.User" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/todoInfoFragment"
+        android:name="sb.lib.todolistapp.ui.fragments.TodoInfoFragment"
+        android:label="TodoInfoFragment"
+        tools:layout="@layout/todo_info_layout"
+        >
+
+
+        <argument
+            android:name="todo"
+            app:argType="sb.lib.todolistapp.models.Todo"
+            app:nullable="true" />
+
+        <argument
+            android:name="userId"
+            app:argType="sb.lib.todolistapp.models.User" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="sb.lib.todolistapp.ui.fragments.AuthenticationFragment"
+        android:label="AuthenticationFragment"
+        tools:layout="@layout/athentication_layout"
+        >
+        <action
+            android:id="@+id/action_authenticationFragment_to_todoListFragment"
+            app:destination="@id/todoListFragment" />
+    </fragment>
+
+
+</navigation>

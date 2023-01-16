@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+
+    <data class="TodoInfoDataBinding">
+
+        <variable
+            name="viewModel"
+            type="sb.lib.todolistapp.viewmodel.TodoListViewModel" />
+
+        <variable
+            name="todo"
+            type="sb.lib.todolistapp.models.Todo" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1D1C21">
+
+
+        <sb.lib.todolistapp.custom_views.NewTaskToolbar
+            android:id="@+id/newTaskToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#27282C"
+            app:layout_constraintBottom_toTopOf="@+id/include"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <include
+            android:id="@+id/include"
+            bind:maincontentviewmodel="@{viewModel}"
+
+            bind:todo="@{todo}"
+            android:layout_margin="16dp"
+            layout="@layout/todo_main_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newTaskToolbar"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+
+        <sb.lib.todolistapp.custom_views.DoneView
+            android:id="@+id/doneView"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.94" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

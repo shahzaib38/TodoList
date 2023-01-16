@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource"
+    xmlns:bind="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+
+        <variable
+            name="maincontentviewmodel"
+               type="sb.lib.todolistapp.viewmodel.TodoListViewModel" />
+
+        <variable
+            name="todo"
+            type="sb.lib.todolistapp.models.Todo" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <include
+            android:id="@+id/include2"
+            layout="@layout/task_layout"
+            bind:todo="@{todo}"
+
+            bind:taskViewModel="@{maincontentviewmodel}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/includedate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <include
+            android:id="@+id/includedate"
+            bind:todo="@{todo}"
+
+            bind:dateViewModel="@{maincontentviewmodel}"
+
+            layout="@layout/date_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/includetime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+        <include
+            android:id="@+id/includetime"
+            bind:timeViewModel="@{maincontentviewmodel}"
+            bind:todo="@{todo}"
+
+            layout="@layout/time_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/includedate" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

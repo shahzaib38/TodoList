@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/crossId"
+        android:icon="@drawable/add_icon"
+        android:title="@string/add_description"/>
+
+    <item
+        android:id="@+id/speakerId"
+        android:icon="@drawable/sign_out_icon"
+        android:title="@string/sign_out"/>
+
+
+
+</menu>

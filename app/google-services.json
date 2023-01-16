@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "845642527380",
+    "project_id": "todo-list-cb418",
+    "storage_bucket": "todo-list-cb418.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845642527380:android:d8682c154ebbe4a8137a81",
+        "android_client_info": {
+          "package_name": "sb.lib.todolistapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845642527380-8i854fs9cqmd3m62iqakbo93ho43fe8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8skIR_3BEh33Qqu2EER6I5WB9O7WHFHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845642527380-8i854fs9cqmd3m62iqakbo93ho43fe8p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

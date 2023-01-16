@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/crossId"
+        android:icon="@drawable/cross_icon"
+        android:title="@string/cross_description"/>
+
+    <item
+        android:id="@+id/tickId"
+        android:icon="@drawable/tick_icon"
+        android:title="@string/tick_description"/>
+
+
+</menu>
