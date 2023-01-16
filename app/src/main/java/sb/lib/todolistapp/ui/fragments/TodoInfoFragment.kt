@@ -65,7 +65,7 @@ class TodoInfoFragment : BaseFragment<TodoInfoDataBinding, TodoListViewModel>() 
 
       val userId =   todoInfoFragmentArgs.userId
       val todo = todoInfoFragmentArgs.todo
-      Log.i(TAG,"Todo List ${todo}")
+
 
       if(todo!=null && userId!= null ) {
        documentReference =   firestore.collection(userId.userId!!)
@@ -77,6 +77,8 @@ class TodoInfoFragment : BaseFragment<TodoInfoDataBinding, TodoListViewModel>() 
               Toast.makeText(requireContext() , "Todo Successfully Added",Toast.LENGTH_LONG).show()
               findNavController().popBackStack() }
       }
+
+      
 
 
   }

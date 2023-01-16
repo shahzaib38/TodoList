@@ -155,7 +155,7 @@ class TodoAddView @JvmOverloads constructor(context:Context , attr : AttributeSe
 
 
     private val backgroundPaint = Paint().apply {
-        this.color = Color.parseColor("#1D1C21")
+        this.color = Color.parseColor("#3D3F47")
     }
 
     private val textPaint = Paint().apply {
