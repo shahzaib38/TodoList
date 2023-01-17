@@ -26,6 +26,7 @@ import sb.lib.todolistapp.custom_views.NewTaskToolbar
 import sb.lib.todolistapp.databinding.TodoInfoDataBinding
 import sb.lib.todolistapp.models.Todo
 import sb.lib.todolistapp.navigators.TodoNavigator
+import sb.lib.todolistapp.ui.activities.TodoActivity
 import sb.lib.todolistapp.utils.DateUtils
 import sb.lib.todolistapp.viewmodel.TodoListViewModel
 
@@ -47,15 +48,29 @@ class TodoInfoFragment : BaseFragment<TodoInfoDataBinding, TodoListViewModel>() 
 
         lifecycleScope.launch {
             launch {
-               mViewModel.setNavigator(this@TodoInfoFragment)
-               mViewModel.uiTodoState.observe(viewLifecycleOwner) {
-                   mTodoInfoDataBinding?.todo = it } }
+                lifecycleAwares()
+            }
 
             launch {
                 init() } }
 
     }
 
+
+    private suspend fun lifecycleAwares(){
+        mViewModel.setNavigator(this@TodoInfoFragment)
+        mViewModel.uiTodoState.observe(viewLifecycleOwner) {
+            mTodoInfoDataBinding?.todo = it }
+
+        mViewModel.todoError.collect{
+
+            if(it!=null) {
+                Toast.makeText(requireContext(),it,Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+    }
 
     private val todoInfoFragmentArgs by  navArgs<TodoInfoFragmentArgs>()
     private  var firestore : FirebaseFirestore= FirebaseFirestore.getInstance()
@@ -75,8 +90,11 @@ class TodoInfoFragment : BaseFragment<TodoInfoDataBinding, TodoListViewModel>() 
       mTodoInfoDataBinding?.doneView?.setOnClickListener {
           mViewModel.onDone(userId,todo){
               Toast.makeText(requireContext() , "Todo Successfully Added",Toast.LENGTH_LONG).show()
-              findNavController().popBackStack() }
-      }
+              findNavController().popBackStack()
+              val activity = requireActivity()
+              if(activity is TodoActivity){
+                  activity.add() }
+          } }
 
       
 

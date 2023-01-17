@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.firestore.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import sb.lib.todolistapp.BR
 import sb.lib.todolistapp.R
@@ -172,23 +173,13 @@ class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoViewModel>() 
 
     }
 
-//    override fun newTask(name: String) {
-//
-//
-//    }
-//
-//    override fun changeDate() {
-//
-//    }
-//
-//    override fun changeTime() {
-//
-//    }
-
     override fun onResume() {
         super.onResume()
 
-        readDataFromServer()
+        lifecycleScope.launch(Dispatchers.IO) {
+            readDataFromServer()
+
+        }
     }
 
     override fun onPause() {
