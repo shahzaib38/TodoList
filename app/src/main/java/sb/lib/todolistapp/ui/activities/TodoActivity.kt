@@ -52,13 +52,13 @@ class TodoActivity : BaseActivity<TodoListDataBinding,TodoViewModel >() {
 
 
 
-    fun add(){
+    fun add(userId :String ){
 
         if(!mService.isServiceRunning()){
 
             val intent = Intent(this , TodoService::class.java)
             intent.action = TodoService.ADD_SERVICE
-            intent.putExtra(TodoService.Add_kEY, "")
+            intent.putExtra(TodoService.Add_kEY, userId)
 
             ContextCompat.startForegroundService(this.applicationContext ,intent)
 

@@ -192,7 +192,7 @@ class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoViewModel>() 
     private fun readDataFromServer(){
 
 
-        collectionRefs?.get()?.addOnSuccessListener {
+        collectionRefs?.orderBy("date",Query.Direction.ASCENDING)?.get()?.addOnSuccessListener {
 
         val snapShotDocuments =    it.documents
 

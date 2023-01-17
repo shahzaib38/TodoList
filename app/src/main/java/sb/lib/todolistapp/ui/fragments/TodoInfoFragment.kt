@@ -93,7 +93,7 @@ class TodoInfoFragment : BaseFragment<TodoInfoDataBinding, TodoListViewModel>() 
               findNavController().popBackStack()
               val activity = requireActivity()
               if(activity is TodoActivity){
-                  activity.add() }
+                  activity.add(userId.userId!!) }
           } }
 
       
