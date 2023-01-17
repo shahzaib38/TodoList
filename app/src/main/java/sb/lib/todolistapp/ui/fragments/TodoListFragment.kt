@@ -27,6 +27,7 @@ import sb.lib.todolistapp.models.Task
 import sb.lib.todolistapp.models.Todo
 import sb.lib.todolistapp.navigators.InfoNavigator
 import sb.lib.todolistapp.navigators.TodoNavigator
+import sb.lib.todolistapp.ui.activities.TodoActivity
 import sb.lib.todolistapp.utils.OnItemClickListener
 import sb.lib.todolistapp.utils.OnSelectionChangedListener
 import sb.lib.todolistapp.viewmodel.TodoListViewModel
@@ -229,7 +230,15 @@ class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoViewModel>() 
         val todo = task as  Todo
         collectionRefs?.document(todo.date.date.toString())?.delete()?.addOnSuccessListener {
 
+     val      userId =   todoListFragmentArgs.userId.userId
+            if(userId!=null){
+                val activity = requireActivity()
+                if(activity is TodoActivity){
+                    activity.delete(userId) }
+
+            }
             Log.i("Delete","onSuccess")
+
 
         }?.addOnFailureListener {
             Log.i("Delete","onFailure")

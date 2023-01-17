@@ -5,8 +5,6 @@ import android.os.CountDownTimer
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import sb.lib.todolistapp.database.authentication.GoogleAuthenticator
-import sb.lib.todolistapp.database.authentication.WebAuthenticator
 import sb.lib.todolistapp.models.Todo
 import sb.lib.todolistapp.utils.DateUtils
 import java.util.PriorityQueue
@@ -15,7 +13,7 @@ import java.util.PriorityQueue
 interface Scheduler{
 
     fun add(userID :String )
-    fun delete()
+    fun delete(userId :String )
     fun setUserId(userID: String)
 
 }
@@ -147,9 +145,9 @@ class TodoScheduler constructor(private val context: Context, private val todoSe
 
 
 
-    override fun delete() {
+    override fun delete(userID: String) {
         Log.i(TAG,"Todo Deleted ")
-      //  execute()
+        execute(userID)
 
     }
 

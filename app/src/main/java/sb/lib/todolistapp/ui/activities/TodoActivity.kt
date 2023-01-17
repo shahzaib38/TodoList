@@ -62,17 +62,13 @@ class TodoActivity : BaseActivity<TodoListDataBinding,TodoViewModel >() {
 
             ContextCompat.startForegroundService(this.applicationContext ,intent)
 
-
-            Log.i(TAG ,"Seervice ")
-
-        }else{
-
-            Log.i(TAG ,"Seervice ")
-
-        }
+        } else mService.add(userId) }
 
 
 
+    fun delete(userId: String){
+
+        mService.delete(userId)
     }
 
 

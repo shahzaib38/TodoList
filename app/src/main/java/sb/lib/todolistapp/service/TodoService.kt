@@ -121,7 +121,7 @@ class TodoService : Service() {
         return START_STICKY }
 
 
-    private fun add(userId :String ){
+     fun add(userId :String ){
         todoScheduler.add(userId)
     }
 
@@ -166,7 +166,7 @@ class TodoService : Service() {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(completeId, SCHEDULE_NOTIFICATION, NotificationManager.IMPORTANCE_DEFAULT)
+            val channel = NotificationChannel(completeId, SCHEDULE_NOTIFICATION, NotificationManager.IMPORTANCE_HIGH)
             channel.description = SCHEDULE_NOTIFICATION_DESCRIPTION
             notificationManager.createNotificationChannel(channel)
         }
@@ -185,4 +185,8 @@ class TodoService : Service() {
     }
 
 
+
+
+    fun delete( userId : String){
+        todoScheduler.delete(userId) }
 }
