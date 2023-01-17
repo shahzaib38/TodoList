@@ -160,7 +160,9 @@ class TodoScheduler constructor(private val context: Context, private val todoSe
 
          isCountDownStart = true
 
-      val timeLeft =  System.currentTimeMillis() - todo.date.date
+
+
+      val timeLeft =   DateUtils.countDownTime(todo)
 
        countDownTimer =  object : android.os.CountDownTimer(timeLeft, ONE_SECOND) {
 
