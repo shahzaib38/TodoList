@@ -200,8 +200,6 @@ class TodoListFragment : BaseFragment<TodoFragmentDataBinding, TodoViewModel>() 
 
             for(snapShoutDocument in snapShotDocuments){
 
-
-
                 if(snapShoutDocument !=null && snapShoutDocument.exists()) {
 
                val todo =     snapShoutDocument.toObject(Todo::class.java)

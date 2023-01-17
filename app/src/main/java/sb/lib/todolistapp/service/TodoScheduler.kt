@@ -10,7 +10,7 @@ import sb.lib.todolistapp.utils.DateUtils
 import java.util.PriorityQueue
 
 
-interface Scheduler{
+interface Scheduler {
 
     fun add(userID :String )
     fun delete(userId :String )
@@ -94,6 +94,7 @@ class TodoScheduler constructor(private val context: Context, private val todoSe
                     if(querySnapShot!=null){
 
                         if(todoQueue.isNotEmpty()) todoQueue.clear()
+
                         val todoList  =   querySnapShot.toObjects(Todo::class.java)
 
                         for(todo in todoList){
